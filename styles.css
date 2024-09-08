@@ -1,0 +1,78 @@
+.nav{
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.nav a:hover, img:hover{
+    background-color: #e5e1e1;
+
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Lato
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+::selection{
+    background-color: #cce2ff;
+}
+
+.blue-section{
+    background: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246)) rgb(255, 255, 255);
+
+    color: #fff;
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+    font-weight: 700;
+    padding-bottom: 200px;
+    padding-top: 20px;
+
+}
+
+.blueSec-lbl label{
+    display: block;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.tokenTable{
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+    background-color: #fff;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    top: -150px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background-color: #f1f1f1;
+    color: #807f7f;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+
+tr:hover {
+    background-color: #f1f1f1;
+}
