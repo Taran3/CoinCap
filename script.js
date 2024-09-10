@@ -76,7 +76,7 @@ function renderitems(name , rank , symbol , price , marketcap , vwap24Hr , suppl
     let img = document.createElement("img");
     img.src = src;
 
-    img.style.width = '30';
+    img.style.width = '40';
 
 
     token_info.classList.add("tokenData");
