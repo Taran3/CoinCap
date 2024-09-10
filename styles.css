@@ -1,9 +1,13 @@
 .nav{
+    background-color: #fff;
     display: flex;
     gap: 5%;
     align-items: center;
     justify-content: center;
     font-size: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .nav a:hover, img:hover{
