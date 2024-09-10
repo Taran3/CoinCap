@@ -30,9 +30,13 @@ async function getAssets() {
         let change24Hr = assetsData[x]["changePercent24Hr"];
         change24Hr = parseFloat(change24Hr).toFixed(2) + "%";
 
+        let symboltoString = String(tokenSymbol).toLowerCase();
+        let logosBaseUrl = "https://assets.coincap.io/assets/icons/@2x.png"
+        let imgsrc = logosBaseUrl.slice(0 , -7) + symboltoString + logosBaseUrl.slice(-7);
 
 
-        renderitems(tokenName , tokenRank , tokenSymbol, tokenPrice , marketCap , vwap24Hr , supply , volume24Hr , change24Hr);
+
+        renderitems(tokenName , tokenRank , tokenSymbol, tokenPrice , marketCap , vwap24Hr , supply , volume24Hr , change24Hr , imgsrc);
     }
 
     
@@ -40,7 +44,7 @@ async function getAssets() {
 }
     
 
-function renderitems(name , rank , symbol , price , marketcap , vwap24Hr , supply , volume24Hr , change24Hr){
+function renderitems(name , rank , symbol , price , marketcap , vwap24Hr , supply , volume24Hr , change24Hr , src){
     let token_table = document.querySelector("tbody");
     let token_info = document.createElement("tr");
     let rank_lbl = document.createElement("td");
@@ -62,12 +66,24 @@ function renderitems(name , rank , symbol , price , marketcap , vwap24Hr , suppl
     vwap_24Hr.textContent = vwap24Hr;
     supply_var.textContent = supply;
     volume_24Hr.textContent = volume24Hr
-    change_24Hr.textContent = change24Hr
+    let change24Hrcontent = change_24Hr.textContent = change24Hr
+    if (change24Hrcontent[0] == "-"){
+      change_24Hr.style.color = "red";
+    }else{
+      change_24Hr.style.color = "rgb(24, 198, 131)";
+    };
+    
+    let img = document.createElement("img");
+    img.src = src;
+
+    img.style.width = '30';
+
 
     token_info.classList.add("tokenData");
 
 
     token_info.appendChild(rank_lbl);
+    token_info.appendChild(img);
     token_info.appendChild(token_name);
     token_name.appendChild(token_symbol);
     token_info.appendChild(token_price);
@@ -80,6 +96,7 @@ function renderitems(name , rank , symbol , price , marketcap , vwap24Hr , suppl
     token_table.appendChild(token_info);
 
 }
+
 
 
 function numConverter(num){
